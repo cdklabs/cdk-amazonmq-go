@@ -8,7 +8,7 @@ Features                                     | Stability
 Higher level constructs for ActiveMQ Brokers | ![Experimental](https://img.shields.io/badge/experimental-important.svg?style=for-the-badge)
 Higher level constructs for RabbitMQ Bokers  | ![Experimental](https://img.shields.io/badge/experimental-important.svg?style=for-the-badge)
 
-> **Experimental:** Higher level constructs in this module that are marked as experimental are
+> **Experimental:** Higher level constructs in this module are experimental and
 > under active development. They are subject to non-backward compatible changes or removal in any
 > future version. These are not subject to the [Semantic Versioning](https://semver.org/) model and
 > breaking changes will be announced in the release notes. This means that while you may use them,
@@ -42,6 +42,7 @@ Higher level constructs for RabbitMQ Bokers  | ![Experimental](https://img.shiel
   * [RabbitMQ Broker Configurations](#rabbitmq-broker-configurations)
   * [Monitoring RabbitMQ Brokers](#monitoring-rabbitmq-brokers)
   * [RabbitMQ Broker Integration with AWS Lambda](#rabbitmq-broker-integration-with-aws-lambda)
+  * [Using Management HTTP API through `RabbitMqCustomResource`](#using-management-http-api-through-rabbitmqcustomresource)
 
 ## Introduction
 
@@ -597,3 +598,84 @@ var deployment iRabbitMqBrokerDeployment
 
 deployment.Connections.AllowDefaultPortInternally()
 ```
+
+### Using Management HTTP API through `RabbitMqCustomResource`
+
+This library allows for interacting with Amazon MQ for RabbitMQ brokers with the use of RabbitMQ Management HTTP API through the use of `RabbitMqCustomResource`. This resource follows the user experience of [`AwsCustomResource`](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.custom_resources.AwsCustomResource.html) and is underpinned by a [`SingletonFunction`](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_lambda.SingletonFunction.html). The custom resource creates such singleton function per a combination of `broker`, `credentials`, `vpc`, `vpcSubnets`, and `securityGroups`. This allows for limiting the number of resources, but limits the scope per permissions (through taking into consideration `broker` and `credentials`) and connectivity (through `vpc`, `vpcSubnets`, and `securityGroups`).
+
+An example use of the `RabbitMqCustomResource` is presented below:
+
+```go
+import "github.com/aws/aws-cdk-go/awscdk"
+import "github.com/aws/aws-cdk-go/awscdk"
+import "github.com/aws/aws-cdk-go/awscdk"
+import "github.com/aws/aws-cdk-go/awscdk"
+import "github.com/cdklabs/cdk-amazonmq-go/cdklabscdkamazonmq"
+
+var stack stack
+var username string
+var userCreds iSecret // with username/password fields
+var broker iRabbitMqBroker
+var brokerAdminCreds iSecret
+// with username/password fields of the broker admin
+
+user := cdklabscdkamazonmq.NewRabbitMqCustomResource(stack, jsii.String("CreateUser"), &RabbitMqCustomResourceProps{
+	Broker: Broker,
+	Credentials: brokerAdminCreds,
+	LogGroup: awscdk.NewLogGroup(stack, jsii.String("RmqCustomResourceLogGroup"), &LogGroupProps{
+		Retention: awscdk.RetentionDays_ONE_DAY,
+	}),
+	OnUpdate: &RabbitMqApiCall{
+		Path: fmt.Sprintf("/api/users/%v", userCreds.SecretValueFromJson(jsii.String("username"))),
+		Method: *cdklabscdkamazonmq.HttpMethods_PUT,
+		Payload: map[string]interface{}{
+			"password": userCreds.*SecretValueFromJson(jsii.String("password")),
+			"tags": jsii.String(""),
+		},
+		PhysicalResourceId: awscdk.PhysicalResourceId_Of(fmt.Sprintf("%v-create", username)),
+	},
+	OnDelete: &RabbitMqApiCall{
+		Path: fmt.Sprintf("/api/users/%v", userCreds.*SecretValueFromJson(jsii.String("username"))),
+		Method: *cdklabscdkamazonmq.HttpMethods_DELETE,
+	},
+	Policy: *cdklabscdkamazonmq.RabbitMqCustomResourcePolicy_FromStatements([]policyStatement{
+		awscdk.NewPolicyStatement(&PolicyStatementProps{
+			Actions: []*string{
+				jsii.String("secretsmanager:GetSecretValue"),
+			},
+			Resources: []*string{
+				userCreds.SecretArn,
+			},
+		}),
+	}),
+})
+```
+
+The above example binds the creation, updating and deletion of a RabbitMQ user. The behavior of `onCreate` and `onUpdate` of the `RabbitMqCustomResource` follows the behavior of the `AwsCustomResource` in that if there is no `onCreate`, and only `onUpdate` - this will be used for both: `onCreate` and `onUpdate`.
+
+Additionally, `RabbitMqCustomResource` can read information from the SecretManager Secrets which allows to set the password of the user without exposing it. As this requires read permissions on the secret itself - it is allowed with the use of `RabbitMqCustomResourcePolicy`.
+
+`RabbitMqCustomResource` also replicates the formatting of the output from the commands replicating the behavior of `AwsCustomResource`. It means that the output is flattened and to retrieve any field form the `RabbitMqCustomResource` instance the flattened path needs to be applied. The example below shows how to retrieve the name of the broker node of a `RabbitMqBrokerInstance`:
+
+```go
+import "github.com/aws/aws-cdk-go/awscdk"
+import "github.com/cdklabs/cdk-amazonmq-go/cdklabscdkamazonmq"
+
+var stack stack
+var broker rabbitMqBrokerInstance
+var credentials iSecret
+
+
+getNodesName := cdklabscdkamazonmq.NewRabbitMqCustomResource(this, jsii.String("GetNodes"), &RabbitMqCustomResourceProps{
+	Broker: Broker,
+	Credentials: Credentials,
+	OnCreate: &RabbitMqApiCall{
+		Path: jsii.String("/api/nodes"),
+	},
+})
+
+// accessing the field returned by the call
+getNodesName.GetResponseField(jsii.String("0.name"))
+```
+
+In the example presented the response of the call to `/api/nodes` endpoint is an JSON array of objects. For the `RabbitMqBrokerInstance` there will be a single object, whereas for the `RabbitMqBrokerCluster` there will be three objects presenting information for each node. Arrays are flattened by using the index for a position of the object and that is why the name of the first (and in the example only) node will is retrieved by specifying the response field name `0.name`.

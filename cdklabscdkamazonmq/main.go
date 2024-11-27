@@ -497,6 +497,16 @@ func init() {
 		"@cdklabs/cdk-amazonmq.EventSourceProps",
 		reflect.TypeOf((*EventSourceProps)(nil)).Elem(),
 	)
+	_jsii_.RegisterEnum(
+		"@cdklabs/cdk-amazonmq.HttpMethods",
+		reflect.TypeOf((*HttpMethods)(nil)).Elem(),
+		map[string]interface{}{
+			"GET": HttpMethods_GET,
+			"POST": HttpMethods_POST,
+			"PUT": HttpMethods_PUT,
+			"DELETE": HttpMethods_DELETE,
+		},
+	)
 	_jsii_.RegisterInterface(
 		"@cdklabs/cdk-amazonmq.IActiveMqBroker",
 		reflect.TypeOf((*IActiveMqBroker)(nil)).Elem(),
@@ -713,6 +723,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@cdklabs/cdk-amazonmq.MaintenanceWindowStartTime",
 		reflect.TypeOf((*MaintenanceWindowStartTime)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@cdklabs/cdk-amazonmq.RabbitMqApiCall",
+		reflect.TypeOf((*RabbitMqApiCall)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"@cdklabs/cdk-amazonmq.RabbitMqBrokerCluster",
@@ -939,6 +953,39 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@cdklabs/cdk-amazonmq.RabbitMqCloudwatchLogsExports",
 		reflect.TypeOf((*RabbitMqCloudwatchLogsExports)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@cdklabs/cdk-amazonmq.RabbitMqCustomResource",
+		reflect.TypeOf((*RabbitMqCustomResource)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "connections", GoGetter: "Connections"},
+			_jsii_.MemberMethod{JsiiMethod: "getResponseField", GoMethod: "GetResponseField"},
+			_jsii_.MemberMethod{JsiiMethod: "getResponseFieldReference", GoMethod: "GetResponseFieldReference"},
+			_jsii_.MemberProperty{JsiiProperty: "grantPrincipal", GoGetter: "GrantPrincipal"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+		},
+		func() interface{} {
+			j := jsiiProxy_RabbitMqCustomResource{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__awsec2IConnectable)
+			_jsii_.InitJsiiProxy(&j.Type__awsiamIGrantable)
+			return &j
+		},
+	)
+	_jsii_.RegisterClass(
+		"@cdklabs/cdk-amazonmq.RabbitMqCustomResourcePolicy",
+		reflect.TypeOf((*RabbitMqCustomResourcePolicy)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "statements", GoGetter: "Statements"},
+		},
+		func() interface{} {
+			return &jsiiProxy_RabbitMqCustomResourcePolicy{}
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@cdklabs/cdk-amazonmq.RabbitMqCustomResourceProps",
+		reflect.TypeOf((*RabbitMqCustomResourceProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"@cdklabs/cdk-amazonmq.RabbitMqEventSource",
