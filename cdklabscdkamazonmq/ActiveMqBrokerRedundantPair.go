@@ -13,6 +13,10 @@ import (
 
 // A representation of an active/standby broker that is comprised of two brokers in two different Availability Zones.
 //
+// Additional optimizations:
+// - When subnet selection returns more then 2 subnets. Construct picks first two that do belong to different AZ. Warning is annotated. If subnet selection does not meet AZ criteria an error is thrown.
+//
+//
 // see: https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/active-standby-broker-deployment.html
 // Experimental.
 type ActiveMqBrokerRedundantPair interface {

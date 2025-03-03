@@ -11,7 +11,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A representation of a single-instance broker comprised of one broker in one Availability Zone behind a Network Load Balancer (NLB).
+// A representation of a single-instance broker comprised of one broker in one Availability Zone behind a Network Load Balancer (NLB)  Additional optimizations: - When subnet selection returns more then 1 subnets.
+//
+// A first one is picked. Warning is annotated
 // Experimental.
 type RabbitMqBrokerInstance interface {
 	RabbitMqBrokerDeploymentBase
