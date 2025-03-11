@@ -219,7 +219,7 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_ActiveMqBrokerInstance{}
 			_jsii_.InitJsiiProxy(&j.jsiiProxy_ActiveMqBrokerDeploymentBase)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IActiveMqBroker)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IActiveMqBrokerInstance)
 			return &j
 		},
 	)
@@ -293,6 +293,7 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_ActiveMqBrokerRedundantPair{}
 			_jsii_.InitJsiiProxy(&j.jsiiProxy_ActiveMqBrokerDeploymentBase)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IActiveMqBrokerRedundantPair)
 			return &j
 		},
 	)
@@ -599,6 +600,129 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
+		"@cdklabs/cdk-amazonmq.IActiveMqBrokerInstance",
+		reflect.TypeOf((*IActiveMqBrokerInstance)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "arn", GoGetter: "Arn"},
+			_jsii_.MemberProperty{JsiiProperty: "connections", GoGetter: "Connections"},
+			_jsii_.MemberProperty{JsiiProperty: "endpoints", GoGetter: "Endpoints"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "id", GoGetter: "Id"},
+			_jsii_.MemberProperty{JsiiProperty: "ipAddress", GoGetter: "IpAddress"},
+			_jsii_.MemberMethod{JsiiMethod: "metric", GoMethod: "Metric"},
+			_jsii_.MemberMethod{JsiiMethod: "metricAmqpMaximumConnections", GoMethod: "MetricAmqpMaximumConnections"},
+			_jsii_.MemberMethod{JsiiMethod: "metricBurstBalance", GoMethod: "MetricBurstBalance"},
+			_jsii_.MemberMethod{JsiiMethod: "metricConsumerCount", GoMethod: "MetricConsumerCount"},
+			_jsii_.MemberMethod{JsiiMethod: "metricCpuCreditBalance", GoMethod: "MetricCpuCreditBalance"},
+			_jsii_.MemberMethod{JsiiMethod: "metricCpuUtilization", GoMethod: "MetricCpuUtilization"},
+			_jsii_.MemberMethod{JsiiMethod: "metricCurrentConnectionsCount", GoMethod: "MetricCurrentConnectionsCount"},
+			_jsii_.MemberMethod{JsiiMethod: "metricDequeueCount", GoMethod: "MetricDequeueCount"},
+			_jsii_.MemberMethod{JsiiMethod: "metricDispatchCount", GoMethod: "MetricDispatchCount"},
+			_jsii_.MemberMethod{JsiiMethod: "metricEnqueueCount", GoMethod: "MetricEnqueueCount"},
+			_jsii_.MemberMethod{JsiiMethod: "metricEnqueueTime", GoMethod: "MetricEnqueueTime"},
+			_jsii_.MemberMethod{JsiiMethod: "metricEstablishedConnectionsCount", GoMethod: "MetricEstablishedConnectionsCount"},
+			_jsii_.MemberMethod{JsiiMethod: "metricExpiredCount", GoMethod: "MetricExpiredCount"},
+			_jsii_.MemberMethod{JsiiMethod: "metricHeapUsage", GoMethod: "MetricHeapUsage"},
+			_jsii_.MemberMethod{JsiiMethod: "metricInactiveDurableTopicSubscribersCount", GoMethod: "MetricInactiveDurableTopicSubscribersCount"},
+			_jsii_.MemberMethod{JsiiMethod: "metricInFlightCount", GoMethod: "MetricInFlightCount"},
+			_jsii_.MemberMethod{JsiiMethod: "metricJobSchedulerStorePercentUsage", GoMethod: "MetricJobSchedulerStorePercentUsage"},
+			_jsii_.MemberMethod{JsiiMethod: "metricJournalFilesForFastRecovery", GoMethod: "MetricJournalFilesForFastRecovery"},
+			_jsii_.MemberMethod{JsiiMethod: "metricJournalFilesForFullRecovery", GoMethod: "MetricJournalFilesForFullRecovery"},
+			_jsii_.MemberMethod{JsiiMethod: "metricMemoryUsage", GoMethod: "MetricMemoryUsage"},
+			_jsii_.MemberMethod{JsiiMethod: "metricMqttMaximumConnections", GoMethod: "MetricMqttMaximumConnections"},
+			_jsii_.MemberMethod{JsiiMethod: "metricNetworkConnectorConnectionCount", GoMethod: "MetricNetworkConnectorConnectionCount"},
+			_jsii_.MemberMethod{JsiiMethod: "metricNetworkIn", GoMethod: "MetricNetworkIn"},
+			_jsii_.MemberMethod{JsiiMethod: "metricNetworkOut", GoMethod: "MetricNetworkOut"},
+			_jsii_.MemberMethod{JsiiMethod: "metricOpenTransactionCount", GoMethod: "MetricOpenTransactionCount"},
+			_jsii_.MemberMethod{JsiiMethod: "metricOpenwireMaximumConnections", GoMethod: "MetricOpenwireMaximumConnections"},
+			_jsii_.MemberMethod{JsiiMethod: "metricProducerCount", GoMethod: "MetricProducerCount"},
+			_jsii_.MemberMethod{JsiiMethod: "metricQueueSize", GoMethod: "MetricQueueSize"},
+			_jsii_.MemberMethod{JsiiMethod: "metricReceiveCount", GoMethod: "MetricReceiveCount"},
+			_jsii_.MemberMethod{JsiiMethod: "metricStompMaximumConnections", GoMethod: "MetricStompMaximumConnections"},
+			_jsii_.MemberMethod{JsiiMethod: "metricStorePercentUsage", GoMethod: "MetricStorePercentUsage"},
+			_jsii_.MemberMethod{JsiiMethod: "metricTempPercentUsage", GoMethod: "MetricTempPercentUsage"},
+			_jsii_.MemberMethod{JsiiMethod: "metricTotalConsumerCount", GoMethod: "MetricTotalConsumerCount"},
+			_jsii_.MemberMethod{JsiiMethod: "metricTotalDequeueCount", GoMethod: "MetricTotalDequeueCount"},
+			_jsii_.MemberMethod{JsiiMethod: "metricTotalEnqueueCount", GoMethod: "MetricTotalEnqueueCount"},
+			_jsii_.MemberMethod{JsiiMethod: "metricTotalMessageCount", GoMethod: "MetricTotalMessageCount"},
+			_jsii_.MemberMethod{JsiiMethod: "metricTotalProducerCount", GoMethod: "MetricTotalProducerCount"},
+			_jsii_.MemberMethod{JsiiMethod: "metricVolumeReadOps", GoMethod: "MetricVolumeReadOps"},
+			_jsii_.MemberMethod{JsiiMethod: "metricVolumeWriteOps", GoMethod: "MetricVolumeWriteOps"},
+			_jsii_.MemberMethod{JsiiMethod: "metricWsMaximumConnections", GoMethod: "MetricWsMaximumConnections"},
+			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IActiveMqBrokerInstance{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IActiveMqBroker)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IActiveMqBrokerDeployment)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
+		"@cdklabs/cdk-amazonmq.IActiveMqBrokerRedundantPair",
+		reflect.TypeOf((*IActiveMqBrokerRedundantPair)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "arn", GoGetter: "Arn"},
+			_jsii_.MemberProperty{JsiiProperty: "connections", GoGetter: "Connections"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "first", GoGetter: "First"},
+			_jsii_.MemberProperty{JsiiProperty: "id", GoGetter: "Id"},
+			_jsii_.MemberMethod{JsiiMethod: "metric", GoMethod: "Metric"},
+			_jsii_.MemberMethod{JsiiMethod: "metricAmqpMaximumConnections", GoMethod: "MetricAmqpMaximumConnections"},
+			_jsii_.MemberMethod{JsiiMethod: "metricBurstBalance", GoMethod: "MetricBurstBalance"},
+			_jsii_.MemberMethod{JsiiMethod: "metricConsumerCount", GoMethod: "MetricConsumerCount"},
+			_jsii_.MemberMethod{JsiiMethod: "metricCpuCreditBalance", GoMethod: "MetricCpuCreditBalance"},
+			_jsii_.MemberMethod{JsiiMethod: "metricCpuUtilization", GoMethod: "MetricCpuUtilization"},
+			_jsii_.MemberMethod{JsiiMethod: "metricCurrentConnectionsCount", GoMethod: "MetricCurrentConnectionsCount"},
+			_jsii_.MemberMethod{JsiiMethod: "metricDequeueCount", GoMethod: "MetricDequeueCount"},
+			_jsii_.MemberMethod{JsiiMethod: "metricDispatchCount", GoMethod: "MetricDispatchCount"},
+			_jsii_.MemberMethod{JsiiMethod: "metricEnqueueCount", GoMethod: "MetricEnqueueCount"},
+			_jsii_.MemberMethod{JsiiMethod: "metricEnqueueTime", GoMethod: "MetricEnqueueTime"},
+			_jsii_.MemberMethod{JsiiMethod: "metricEstablishedConnectionsCount", GoMethod: "MetricEstablishedConnectionsCount"},
+			_jsii_.MemberMethod{JsiiMethod: "metricExpiredCount", GoMethod: "MetricExpiredCount"},
+			_jsii_.MemberMethod{JsiiMethod: "metricHeapUsage", GoMethod: "MetricHeapUsage"},
+			_jsii_.MemberMethod{JsiiMethod: "metricInactiveDurableTopicSubscribersCount", GoMethod: "MetricInactiveDurableTopicSubscribersCount"},
+			_jsii_.MemberMethod{JsiiMethod: "metricInFlightCount", GoMethod: "MetricInFlightCount"},
+			_jsii_.MemberMethod{JsiiMethod: "metricJobSchedulerStorePercentUsage", GoMethod: "MetricJobSchedulerStorePercentUsage"},
+			_jsii_.MemberMethod{JsiiMethod: "metricJournalFilesForFastRecovery", GoMethod: "MetricJournalFilesForFastRecovery"},
+			_jsii_.MemberMethod{JsiiMethod: "metricJournalFilesForFullRecovery", GoMethod: "MetricJournalFilesForFullRecovery"},
+			_jsii_.MemberMethod{JsiiMethod: "metricMemoryUsage", GoMethod: "MetricMemoryUsage"},
+			_jsii_.MemberMethod{JsiiMethod: "metricMqttMaximumConnections", GoMethod: "MetricMqttMaximumConnections"},
+			_jsii_.MemberMethod{JsiiMethod: "metricNetworkConnectorConnectionCount", GoMethod: "MetricNetworkConnectorConnectionCount"},
+			_jsii_.MemberMethod{JsiiMethod: "metricNetworkIn", GoMethod: "MetricNetworkIn"},
+			_jsii_.MemberMethod{JsiiMethod: "metricNetworkOut", GoMethod: "MetricNetworkOut"},
+			_jsii_.MemberMethod{JsiiMethod: "metricOpenTransactionCount", GoMethod: "MetricOpenTransactionCount"},
+			_jsii_.MemberMethod{JsiiMethod: "metricOpenwireMaximumConnections", GoMethod: "MetricOpenwireMaximumConnections"},
+			_jsii_.MemberMethod{JsiiMethod: "metricProducerCount", GoMethod: "MetricProducerCount"},
+			_jsii_.MemberMethod{JsiiMethod: "metricQueueSize", GoMethod: "MetricQueueSize"},
+			_jsii_.MemberMethod{JsiiMethod: "metricReceiveCount", GoMethod: "MetricReceiveCount"},
+			_jsii_.MemberMethod{JsiiMethod: "metricStompMaximumConnections", GoMethod: "MetricStompMaximumConnections"},
+			_jsii_.MemberMethod{JsiiMethod: "metricStorePercentUsage", GoMethod: "MetricStorePercentUsage"},
+			_jsii_.MemberMethod{JsiiMethod: "metricTempPercentUsage", GoMethod: "MetricTempPercentUsage"},
+			_jsii_.MemberMethod{JsiiMethod: "metricTotalConsumerCount", GoMethod: "MetricTotalConsumerCount"},
+			_jsii_.MemberMethod{JsiiMethod: "metricTotalDequeueCount", GoMethod: "MetricTotalDequeueCount"},
+			_jsii_.MemberMethod{JsiiMethod: "metricTotalEnqueueCount", GoMethod: "MetricTotalEnqueueCount"},
+			_jsii_.MemberMethod{JsiiMethod: "metricTotalMessageCount", GoMethod: "MetricTotalMessageCount"},
+			_jsii_.MemberMethod{JsiiMethod: "metricTotalProducerCount", GoMethod: "MetricTotalProducerCount"},
+			_jsii_.MemberMethod{JsiiMethod: "metricVolumeReadOps", GoMethod: "MetricVolumeReadOps"},
+			_jsii_.MemberMethod{JsiiMethod: "metricVolumeWriteOps", GoMethod: "MetricVolumeWriteOps"},
+			_jsii_.MemberMethod{JsiiMethod: "metricWsMaximumConnections", GoMethod: "MetricWsMaximumConnections"},
+			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "second", GoGetter: "Second"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IActiveMqBrokerRedundantPair{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IActiveMqBrokerDeployment)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
 		"@cdklabs/cdk-amazonmq.IActiveMqBrokerUserManagement",
 		reflect.TypeOf((*IActiveMqBrokerUserManagement)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -650,10 +774,57 @@ func init() {
 		"@cdklabs/cdk-amazonmq.IRabbitMqBroker",
 		reflect.TypeOf((*IRabbitMqBroker)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "endpoints", GoGetter: "Endpoints"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 		},
 		func() interface{} {
-			return &jsiiProxy_IRabbitMqBroker{}
+			j := jsiiProxy_IRabbitMqBroker{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
+		"@cdklabs/cdk-amazonmq.IRabbitMqBrokerCluster",
+		reflect.TypeOf((*IRabbitMqBrokerCluster)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "arn", GoGetter: "Arn"},
+			_jsii_.MemberProperty{JsiiProperty: "connections", GoGetter: "Connections"},
+			_jsii_.MemberProperty{JsiiProperty: "endpoints", GoGetter: "Endpoints"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "id", GoGetter: "Id"},
+			_jsii_.MemberMethod{JsiiMethod: "metric", GoMethod: "Metric"},
+			_jsii_.MemberMethod{JsiiMethod: "metricAckRate", GoMethod: "MetricAckRate"},
+			_jsii_.MemberMethod{JsiiMethod: "metricChannelCount", GoMethod: "MetricChannelCount"},
+			_jsii_.MemberMethod{JsiiMethod: "metricConfirmRate", GoMethod: "MetricConfirmRate"},
+			_jsii_.MemberMethod{JsiiMethod: "metricConnectionCount", GoMethod: "MetricConnectionCount"},
+			_jsii_.MemberMethod{JsiiMethod: "metricConsumerCount", GoMethod: "MetricConsumerCount"},
+			_jsii_.MemberMethod{JsiiMethod: "metricExchangeCount", GoMethod: "MetricExchangeCount"},
+			_jsii_.MemberMethod{JsiiMethod: "metricMessageCount", GoMethod: "MetricMessageCount"},
+			_jsii_.MemberMethod{JsiiMethod: "metricMessageReadyCount", GoMethod: "MetricMessageReadyCount"},
+			_jsii_.MemberMethod{JsiiMethod: "metricMessageUnacknowledgedCount", GoMethod: "MetricMessageUnacknowledgedCount"},
+			_jsii_.MemberMethod{JsiiMethod: "metricPublishRate", GoMethod: "MetricPublishRate"},
+			_jsii_.MemberMethod{JsiiMethod: "metricQueueCount", GoMethod: "MetricQueueCount"},
+			_jsii_.MemberMethod{JsiiMethod: "metricRabbitMQDiskFree", GoMethod: "MetricRabbitMQDiskFree"},
+			_jsii_.MemberMethod{JsiiMethod: "metricRabbitMQDiskFreeLimit", GoMethod: "MetricRabbitMQDiskFreeLimit"},
+			_jsii_.MemberMethod{JsiiMethod: "metricRabbitMQFdUsed", GoMethod: "MetricRabbitMQFdUsed"},
+			_jsii_.MemberMethod{JsiiMethod: "metricRabbitMQIOReadAverageTime", GoMethod: "MetricRabbitMQIOReadAverageTime"},
+			_jsii_.MemberMethod{JsiiMethod: "metricRabbitMQIOWriteAverageTime", GoMethod: "MetricRabbitMQIOWriteAverageTime"},
+			_jsii_.MemberMethod{JsiiMethod: "metricRabbitMQMemLimit", GoMethod: "MetricRabbitMQMemLimit"},
+			_jsii_.MemberMethod{JsiiMethod: "metricRabbitMQMemUsed", GoMethod: "MetricRabbitMQMemUsed"},
+			_jsii_.MemberMethod{JsiiMethod: "metricSystemCpuUtilization", GoMethod: "MetricSystemCpuUtilization"},
+			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IRabbitMqBrokerCluster{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IRabbitMqBroker)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IRabbitMqBrokerDeployment)
+			return &j
 		},
 	)
 	_jsii_.RegisterInterface(
@@ -716,6 +887,47 @@ func init() {
 			return &j
 		},
 	)
+	_jsii_.RegisterInterface(
+		"@cdklabs/cdk-amazonmq.IRabbitMqBrokerInstance",
+		reflect.TypeOf((*IRabbitMqBrokerInstance)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "arn", GoGetter: "Arn"},
+			_jsii_.MemberProperty{JsiiProperty: "connections", GoGetter: "Connections"},
+			_jsii_.MemberProperty{JsiiProperty: "endpoints", GoGetter: "Endpoints"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "id", GoGetter: "Id"},
+			_jsii_.MemberMethod{JsiiMethod: "metric", GoMethod: "Metric"},
+			_jsii_.MemberMethod{JsiiMethod: "metricAckRate", GoMethod: "MetricAckRate"},
+			_jsii_.MemberMethod{JsiiMethod: "metricChannelCount", GoMethod: "MetricChannelCount"},
+			_jsii_.MemberMethod{JsiiMethod: "metricConfirmRate", GoMethod: "MetricConfirmRate"},
+			_jsii_.MemberMethod{JsiiMethod: "metricConnectionCount", GoMethod: "MetricConnectionCount"},
+			_jsii_.MemberMethod{JsiiMethod: "metricConsumerCount", GoMethod: "MetricConsumerCount"},
+			_jsii_.MemberMethod{JsiiMethod: "metricExchangeCount", GoMethod: "MetricExchangeCount"},
+			_jsii_.MemberMethod{JsiiMethod: "metricMessageCount", GoMethod: "MetricMessageCount"},
+			_jsii_.MemberMethod{JsiiMethod: "metricMessageReadyCount", GoMethod: "MetricMessageReadyCount"},
+			_jsii_.MemberMethod{JsiiMethod: "metricMessageUnacknowledgedCount", GoMethod: "MetricMessageUnacknowledgedCount"},
+			_jsii_.MemberMethod{JsiiMethod: "metricPublishRate", GoMethod: "MetricPublishRate"},
+			_jsii_.MemberMethod{JsiiMethod: "metricQueueCount", GoMethod: "MetricQueueCount"},
+			_jsii_.MemberMethod{JsiiMethod: "metricRabbitMQDiskFree", GoMethod: "MetricRabbitMQDiskFree"},
+			_jsii_.MemberMethod{JsiiMethod: "metricRabbitMQDiskFreeLimit", GoMethod: "MetricRabbitMQDiskFreeLimit"},
+			_jsii_.MemberMethod{JsiiMethod: "metricRabbitMQFdUsed", GoMethod: "MetricRabbitMQFdUsed"},
+			_jsii_.MemberMethod{JsiiMethod: "metricRabbitMQIOReadAverageTime", GoMethod: "MetricRabbitMQIOReadAverageTime"},
+			_jsii_.MemberMethod{JsiiMethod: "metricRabbitMQIOWriteAverageTime", GoMethod: "MetricRabbitMQIOWriteAverageTime"},
+			_jsii_.MemberMethod{JsiiMethod: "metricRabbitMQMemLimit", GoMethod: "MetricRabbitMQMemLimit"},
+			_jsii_.MemberMethod{JsiiMethod: "metricRabbitMQMemUsed", GoMethod: "MetricRabbitMQMemUsed"},
+			_jsii_.MemberMethod{JsiiMethod: "metricSystemCpuUtilization", GoMethod: "MetricSystemCpuUtilization"},
+			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IRabbitMqBrokerInstance{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IRabbitMqBroker)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IRabbitMqBrokerDeployment)
+			return &j
+		},
+	)
 	_jsii_.RegisterStruct(
 		"@cdklabs/cdk-amazonmq.LdapUserStoreOptions",
 		reflect.TypeOf((*LdapUserStoreOptions)(nil)).Elem(),
@@ -772,7 +984,7 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_RabbitMqBrokerCluster{}
 			_jsii_.InitJsiiProxy(&j.jsiiProxy_RabbitMqBrokerDeploymentBase)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IRabbitMqBroker)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IRabbitMqBrokerCluster)
 			return &j
 		},
 	)
@@ -942,7 +1154,7 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_RabbitMqBrokerInstance{}
 			_jsii_.InitJsiiProxy(&j.jsiiProxy_RabbitMqBrokerDeploymentBase)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IRabbitMqBroker)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IRabbitMqBrokerInstance)
 			return &j
 		},
 	)

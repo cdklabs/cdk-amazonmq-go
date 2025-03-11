@@ -27,6 +27,7 @@ Higher level constructs for RabbitMQ Bokers  | ![Experimental](https://img.shiel
   * [ActiveMQ Broker Deployments](#activemq-broker-deployments)
   * [ActiveMQ Broker Endpoints](#activemq-broker-endpoints)
   * [Allowing Connections to ActiveMQ Brokers](#allowing-connections-to-activemq-brokers)
+  * [Importing Existing ActiveMq Brokers](#importing-exisitng-activemq-brokers)
   * [ActiveMQ Broker Configurations](#activemq-broker-configurations)
   * [ActiveMQ Broker User Management](#activemq-broker-user-management)
 
@@ -38,11 +39,12 @@ Higher level constructs for RabbitMQ Bokers  | ![Experimental](https://img.shiel
 
   * [RabbitMQ Broker Deployments](#rabbitmq-broker-deployments)
   * [RabbitMQ Broker Endpoints](#rabbitmq-broker-endpoints)
+  * [Importing Existing RabbitMq Brokers](#importing-exisitng-rabbitmq-brokers)
   * [Allowing Connections to a RabbitMQ Broker](#allowing-connections-to-a-rabbitmq-broker)
   * [RabbitMQ Broker Configurations](#rabbitmq-broker-configurations)
   * [Monitoring RabbitMQ Brokers](#monitoring-rabbitmq-brokers)
   * [RabbitMQ Broker Integration with AWS Lambda](#rabbitmq-broker-integration-with-aws-lambda)
-  * [Using Management HTTP API through `RabbitMqCustomResource`](#using-management-http-api-through-rabbitmqcustomresource)
+  * [Using RabbitMQ Management HTTP API](#using-rabbitmq-management-http-api)
   * [External Examples](#external-examples)
 
 ## Introduction
@@ -212,6 +214,33 @@ deployment.Connections.AllowFrom(awscdk.Peer_Ipv4(jsii.String("1.2.3.4/8")), aws
 Mind that `connections` will be defined only if VPC and subnets are specified. For an instance of `ActiveMqBrokerRedundantPair` one would access the broker endpoints under either `first` or `second` property.
 
 ***Security:*** It is a security best practice *[to block unnecessary protocols with VPC security groups](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/using-amazon-mq-securely.html#amazon-mq-vpc-security-groups)*.
+
+### Importing exisitng ActiveMQ Brokers
+
+To import an existing `ActiveMqBrokerInstance` use `.fromActiveMqBrokerInstanceArn()` or `.fromActiveMqBrokerInstanceNameAndId()` methods.
+
+```go
+import "github.com/cdklabs/cdk-amazonmq-go/cdklabscdkamazonmq"
+
+
+broker := cdklabscdkamazonmq.ActiveMqBrokerInstance_FromActiveMqBrokerInstanceArn(this, jsii.String("Imported"), jsii.String("arn:aws:mq:us-east-2:123456789012:broker:TestBroker:b-123456789012-123456789012"))
+```
+
+If you want to use `.connections` you can additionally pass `securityGroups`:
+
+```go
+import "github.com/aws/aws-cdk-go/awscdk"
+import "github.com/cdklabs/cdk-amazonmq-go/cdklabscdkamazonmq"
+
+
+sgs := []iSecurityGroup{
+	awscdk.SecurityGroup_FromSecurityGroupId(this, jsii.String("ImportedSG"), jsii.String("sg-123123123123")),
+}
+
+broker := cdklabscdkamazonmq.ActiveMqBrokerInstance_FromActiveMqBrokerInstanceNameAndId(this, jsii.String("Imported"), jsii.String("TestBroker"), jsii.String("b-123456789012-123456789012"), sgs)
+```
+
+Similarly, `ActiveMqBrokerRedundantPair` can be imported using `.fromActiveMqRedundantPairArn()` and `.fromActiveMqRedundantPairNameAndId()` methods.
 
 ### ActiveMQ Broker Configurations
 
@@ -476,6 +505,33 @@ deployment.Connections.AllowFrom(awscdk.Peer_Ipv4(jsii.String("1.2.3.4/8")), aws
 
 Mind that `connections` will be defined only if VPC and subnets are specified.
 
+### Importing exisitng RabbitMQ Brokers
+
+To import an existing `RabbitMqBrokerInstance` use `.fromRabbitMqBrokerInstanceArn()` or `.fromRabbitMqBrokerInstanceNameAndId()` methods.
+
+```go
+import "github.com/cdklabs/cdk-amazonmq-go/cdklabscdkamazonmq"
+
+
+broker := cdklabscdkamazonmq.RabbitMqBrokerInstance_FromRabbitMqBrokerInstanceArn(this, jsii.String("Imported"), jsii.String("arn:aws:mq:us-east-2:123456789012:broker:TestBroker:b-123456789012-123456789012"))
+```
+
+If you want to use `.connections` you can additionally pass `securityGroups`:
+
+```go
+import "github.com/aws/aws-cdk-go/awscdk"
+import "github.com/cdklabs/cdk-amazonmq-go/cdklabscdkamazonmq"
+
+
+sgs := []iSecurityGroup{
+	awscdk.SecurityGroup_FromSecurityGroupId(this, jsii.String("ImportedSG"), jsii.String("sg-123123123123")),
+}
+
+broker := cdklabscdkamazonmq.RabbitMqBrokerInstance_FromRabbitMqBrokerInstanceNameAndId(this, jsii.String("Imported"), jsii.String("TestBroker"), jsii.String("b-123456789012-123456789012"), sgs)
+```
+
+Similarly, `RabbitMqBrokerCluster` can be imported using `.fromRabbitMqClusterArn()` and `.fromRabbitMqClusterNameAndId()` methods.
+
 ### RabbitMQ Broker Configurations
 
 If you do not specify a custom RabbitMQ Broker configuration, Amazon MQ for RabbitMQ will create a default configuration for the broker on your behalf. You can introduce custom configurations by explicitly creating one as in the example below:
@@ -600,7 +656,7 @@ var deployment iRabbitMqBrokerDeployment
 deployment.Connections.AllowDefaultPortInternally()
 ```
 
-### Using Management HTTP API through `RabbitMqCustomResource`
+### Using RabbitMQ Management HTTP API
 
 This library allows for interacting with Amazon MQ for RabbitMQ brokers with the use of RabbitMQ Management HTTP API through the use of `RabbitMqCustomResource`. This resource follows the user experience of [`AwsCustomResource`](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.custom_resources.AwsCustomResource.html) and is underpinned by a [`SingletonFunction`](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_lambda.SingletonFunction.html). The custom resource creates such singleton function per a combination of `broker`, `credentials`, `vpc`, `vpcSubnets`, and `securityGroups`. This allows for limiting the number of resources, but limits the scope per permissions (through taking into consideration `broker` and `credentials`) and connectivity (through `vpc`, `vpcSubnets`, and `securityGroups`).
 

@@ -219,6 +219,42 @@ func (r *jsiiProxy_RabbitMqBrokerInstance) validateMetricSystemCpuUtilizationPar
 	return nil
 }
 
+func validateRabbitMqBrokerInstance_FromRabbitMqBrokerInstanceArnParameters(scope constructs.Construct, logicalId *string, arn *string) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if logicalId == nil {
+		return fmt.Errorf("parameter logicalId is required, but nil was provided")
+	}
+
+	if arn == nil {
+		return fmt.Errorf("parameter arn is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func validateRabbitMqBrokerInstance_FromRabbitMqBrokerInstanceNameAndIdParameters(scope constructs.Construct, logicalId *string, name *string, id *string) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if logicalId == nil {
+		return fmt.Errorf("parameter logicalId is required, but nil was provided")
+	}
+
+	if name == nil {
+		return fmt.Errorf("parameter name is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateRabbitMqBrokerInstance_IsConstructParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

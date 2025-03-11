@@ -180,6 +180,14 @@ func (a *jsiiProxy_ActiveMqBrokerInstance) validateMetricWsMaximumConnectionsPar
 	return nil
 }
 
+func validateActiveMqBrokerInstance_FromActiveMqBrokerInstanceArnParameters(scope constructs.Construct, logicalId *string, arn *string) error {
+	return nil
+}
+
+func validateActiveMqBrokerInstance_FromActiveMqBrokerInstanceNameAndIdParameters(scope constructs.Construct, logicalId *string, name *string, id *string) error {
+	return nil
+}
+
 func validateActiveMqBrokerInstance_IsConstructParameters(x interface{}) error {
 	return nil
 }

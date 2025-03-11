@@ -15,7 +15,7 @@ import (
 // Experimental.
 type RabbitMqBrokerCluster interface {
 	RabbitMqBrokerDeploymentBase
-	IRabbitMqBroker
+	IRabbitMqBrokerCluster
 	// Experimental.
 	Arn() *string
 	// Manages connections for the cluster.
@@ -132,7 +132,7 @@ type RabbitMqBrokerCluster interface {
 // The jsii proxy struct for RabbitMqBrokerCluster
 type jsiiProxy_RabbitMqBrokerCluster struct {
 	jsiiProxy_RabbitMqBrokerDeploymentBase
-	jsiiProxy_IRabbitMqBroker
+	jsiiProxy_IRabbitMqBrokerCluster
 }
 
 func (j *jsiiProxy_RabbitMqBrokerCluster) Arn() *string {
@@ -253,6 +253,50 @@ func NewRabbitMqBrokerCluster_Override(r RabbitMqBrokerCluster, scope constructs
 		[]interface{}{scope, id, props},
 		r,
 	)
+}
+
+// Reference an existing RabbitMQ Broker Cluster, defined outside of the CDK code, by ARN.
+//
+// Returns: a representation of the RabbitMQ Broker Cluster.
+// Experimental.
+func RabbitMqBrokerCluster_FromRabbitMqBrokerClusterArn(scope constructs.Construct, logicalId *string, arn *string, securityGroups *[]awsec2.ISecurityGroup) IRabbitMqBrokerCluster {
+	_init_.Initialize()
+
+	if err := validateRabbitMqBrokerCluster_FromRabbitMqBrokerClusterArnParameters(scope, logicalId, arn); err != nil {
+		panic(err)
+	}
+	var returns IRabbitMqBrokerCluster
+
+	_jsii_.StaticInvoke(
+		"@cdklabs/cdk-amazonmq.RabbitMqBrokerCluster",
+		"fromRabbitMqBrokerClusterArn",
+		[]interface{}{scope, logicalId, arn, securityGroups},
+		&returns,
+	)
+
+	return returns
+}
+
+// Reference an existing RabbitMQ Broker Cluster, defined outside of the CDK code, by name and id.
+//
+// Returns: a representation of the RabbitMQ Broker Cluster.
+// Experimental.
+func RabbitMqBrokerCluster_FromRabbitMqBrokerClusterNameAndId(scope constructs.Construct, logicalId *string, name *string, id *string, securityGroups *[]awsec2.ISecurityGroup) IRabbitMqBrokerCluster {
+	_init_.Initialize()
+
+	if err := validateRabbitMqBrokerCluster_FromRabbitMqBrokerClusterNameAndIdParameters(scope, logicalId, name, id); err != nil {
+		panic(err)
+	}
+	var returns IRabbitMqBrokerCluster
+
+	_jsii_.StaticInvoke(
+		"@cdklabs/cdk-amazonmq.RabbitMqBrokerCluster",
+		"fromRabbitMqBrokerClusterNameAndId",
+		[]interface{}{scope, logicalId, name, id, securityGroups},
+		&returns,
+	)
+
+	return returns
 }
 
 // Checks if `x` is a construct.

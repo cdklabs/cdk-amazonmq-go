@@ -180,6 +180,14 @@ func (a *jsiiProxy_ActiveMqBrokerRedundantPair) validateMetricWsMaximumConnectio
 	return nil
 }
 
+func validateActiveMqBrokerRedundantPair_FromActiveMqBrokerRedundantPairArnParameters(scope constructs.Construct, logicalId *string, arn *string) error {
+	return nil
+}
+
+func validateActiveMqBrokerRedundantPair_FromActiveMqBrokerRedundantPairNameAndIdParameters(scope constructs.Construct, logicalId *string, name *string, id *string) error {
+	return nil
+}
+
 func validateActiveMqBrokerRedundantPair_IsConstructParameters(x interface{}) error {
 	return nil
 }

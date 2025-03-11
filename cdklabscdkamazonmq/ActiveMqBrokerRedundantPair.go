@@ -21,6 +21,7 @@ import (
 // Experimental.
 type ActiveMqBrokerRedundantPair interface {
 	ActiveMqBrokerDeploymentBase
+	IActiveMqBrokerRedundantPair
 	// Experimental.
 	Arn() *string
 	// Experimental.
@@ -183,6 +184,7 @@ type ActiveMqBrokerRedundantPair interface {
 // The jsii proxy struct for ActiveMqBrokerRedundantPair
 type jsiiProxy_ActiveMqBrokerRedundantPair struct {
 	jsiiProxy_ActiveMqBrokerDeploymentBase
+	jsiiProxy_IActiveMqBrokerRedundantPair
 }
 
 func (j *jsiiProxy_ActiveMqBrokerRedundantPair) Arn() *string {
@@ -323,6 +325,50 @@ func NewActiveMqBrokerRedundantPair_Override(a ActiveMqBrokerRedundantPair, scop
 		[]interface{}{scope, id, props},
 		a,
 	)
+}
+
+// Reference an existing ActiveMQ Broker Redundant Pair, defined outside of the CDK code, by ARN.
+//
+// Returns: a representation of the ActiveMQ Broker Redundant Pair.
+// Experimental.
+func ActiveMqBrokerRedundantPair_FromActiveMqBrokerRedundantPairArn(scope constructs.Construct, logicalId *string, arn *string, securityGroups *[]awsec2.ISecurityGroup) IActiveMqBrokerRedundantPair {
+	_init_.Initialize()
+
+	if err := validateActiveMqBrokerRedundantPair_FromActiveMqBrokerRedundantPairArnParameters(scope, logicalId, arn); err != nil {
+		panic(err)
+	}
+	var returns IActiveMqBrokerRedundantPair
+
+	_jsii_.StaticInvoke(
+		"@cdklabs/cdk-amazonmq.ActiveMqBrokerRedundantPair",
+		"fromActiveMqBrokerRedundantPairArn",
+		[]interface{}{scope, logicalId, arn, securityGroups},
+		&returns,
+	)
+
+	return returns
+}
+
+// Reference an existing ActiveMQ Broker Redundant Pair, defined outside of the CDK code, by its name and id.
+//
+// Returns: a representation of the ActiveMQ Broker Redundant Pair.
+// Experimental.
+func ActiveMqBrokerRedundantPair_FromActiveMqBrokerRedundantPairNameAndId(scope constructs.Construct, logicalId *string, name *string, id *string, securityGroups *[]awsec2.ISecurityGroup) IActiveMqBrokerRedundantPair {
+	_init_.Initialize()
+
+	if err := validateActiveMqBrokerRedundantPair_FromActiveMqBrokerRedundantPairNameAndIdParameters(scope, logicalId, name, id); err != nil {
+		panic(err)
+	}
+	var returns IActiveMqBrokerRedundantPair
+
+	_jsii_.StaticInvoke(
+		"@cdklabs/cdk-amazonmq.ActiveMqBrokerRedundantPair",
+		"fromActiveMqBrokerRedundantPairNameAndId",
+		[]interface{}{scope, logicalId, name, id, securityGroups},
+		&returns,
+	)
+
+	return returns
 }
 
 // Checks if `x` is a construct.

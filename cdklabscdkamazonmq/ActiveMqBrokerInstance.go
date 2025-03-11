@@ -21,7 +21,7 @@ import (
 // Experimental.
 type ActiveMqBrokerInstance interface {
 	ActiveMqBrokerDeploymentBase
-	IActiveMqBroker
+	IActiveMqBrokerInstance
 	// Experimental.
 	Arn() *string
 	// Experimental.
@@ -184,7 +184,7 @@ type ActiveMqBrokerInstance interface {
 // The jsii proxy struct for ActiveMqBrokerInstance
 type jsiiProxy_ActiveMqBrokerInstance struct {
 	jsiiProxy_ActiveMqBrokerDeploymentBase
-	jsiiProxy_IActiveMqBroker
+	jsiiProxy_IActiveMqBrokerInstance
 }
 
 func (j *jsiiProxy_ActiveMqBrokerInstance) Arn() *string {
@@ -325,6 +325,50 @@ func NewActiveMqBrokerInstance_Override(a ActiveMqBrokerInstance, scope construc
 		[]interface{}{scope, id, props},
 		a,
 	)
+}
+
+// Reference an existing ActiveMQ Broker Instance, defined outside of the CDK code, by ARN.
+//
+// Returns: a representation of the ActiveMQ Broker Instance.
+// Experimental.
+func ActiveMqBrokerInstance_FromActiveMqBrokerInstanceArn(scope constructs.Construct, logicalId *string, arn *string, securityGroups *[]awsec2.ISecurityGroup) IActiveMqBrokerInstance {
+	_init_.Initialize()
+
+	if err := validateActiveMqBrokerInstance_FromActiveMqBrokerInstanceArnParameters(scope, logicalId, arn); err != nil {
+		panic(err)
+	}
+	var returns IActiveMqBrokerInstance
+
+	_jsii_.StaticInvoke(
+		"@cdklabs/cdk-amazonmq.ActiveMqBrokerInstance",
+		"fromActiveMqBrokerInstanceArn",
+		[]interface{}{scope, logicalId, arn, securityGroups},
+		&returns,
+	)
+
+	return returns
+}
+
+// Reference an existing ActiveMQ Broker Instance, defined outside of the CDK code, by its name and id.
+//
+// Returns: a representation of the ActiveMQ Broker Instance.
+// Experimental.
+func ActiveMqBrokerInstance_FromActiveMqBrokerInstanceNameAndId(scope constructs.Construct, logicalId *string, name *string, id *string, securityGroups *[]awsec2.ISecurityGroup) IActiveMqBrokerInstance {
+	_init_.Initialize()
+
+	if err := validateActiveMqBrokerInstance_FromActiveMqBrokerInstanceNameAndIdParameters(scope, logicalId, name, id); err != nil {
+		panic(err)
+	}
+	var returns IActiveMqBrokerInstance
+
+	_jsii_.StaticInvoke(
+		"@cdklabs/cdk-amazonmq.ActiveMqBrokerInstance",
+		"fromActiveMqBrokerInstanceNameAndId",
+		[]interface{}{scope, logicalId, name, id, securityGroups},
+		&returns,
+	)
+
+	return returns
 }
 
 // Checks if `x` is a construct.

@@ -100,6 +100,14 @@ func (r *jsiiProxy_RabbitMqBrokerCluster) validateMetricSystemCpuUtilizationPara
 	return nil
 }
 
+func validateRabbitMqBrokerCluster_FromRabbitMqBrokerClusterArnParameters(scope constructs.Construct, logicalId *string, arn *string) error {
+	return nil
+}
+
+func validateRabbitMqBrokerCluster_FromRabbitMqBrokerClusterNameAndIdParameters(scope constructs.Construct, logicalId *string, name *string, id *string) error {
+	return nil
+}
+
 func validateRabbitMqBrokerCluster_IsConstructParameters(x interface{}) error {
 	return nil
 }
