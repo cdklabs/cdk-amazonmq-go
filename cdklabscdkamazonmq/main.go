@@ -595,7 +595,6 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_IActiveMqBrokerDeployment{}
 			_jsii_.InitJsiiProxy(&j.jsiiProxy_IBrokerDeployment)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
 			return &j
 		},
 	)
@@ -883,7 +882,6 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_IRabbitMqBrokerDeployment{}
 			_jsii_.InitJsiiProxy(&j.jsiiProxy_IBrokerDeployment)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
 			return &j
 		},
 	)

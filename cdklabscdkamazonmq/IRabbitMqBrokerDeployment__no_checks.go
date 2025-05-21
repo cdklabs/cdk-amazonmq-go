@@ -80,11 +80,3 @@ func (i *jsiiProxy_IRabbitMqBrokerDeployment) validateMetricSystemCpuUtilization
 	return nil
 }
 
-func (i *jsiiProxy_IRabbitMqBrokerDeployment) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
-	return nil
-}
-
-func (i *jsiiProxy_IRabbitMqBrokerDeployment) validateMetricParameters(metricName *string, options *awscloudwatch.MetricOptions) error {
-	return nil
-}
-

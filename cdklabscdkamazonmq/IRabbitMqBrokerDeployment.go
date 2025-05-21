@@ -3,17 +3,12 @@ package cdklabscdkamazonmq
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
-	"github.com/aws/constructs-go/constructs/v10"
-	"github.com/cdklabs/cdk-amazonmq-go/cdklabscdkamazonmq/internal"
 )
 
 // Experimental.
 type IRabbitMqBrokerDeployment interface {
 	IBrokerDeployment
-	awscdk.IResource
 	// Experimental.
 	MetricAckRate(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Experimental.
@@ -57,7 +52,6 @@ type IRabbitMqBrokerDeployment interface {
 // The jsii proxy for IRabbitMqBrokerDeployment
 type jsiiProxy_IRabbitMqBrokerDeployment struct {
 	jsiiProxy_IBrokerDeployment
-	internal.Type__awscdkIResource
 }
 
 func (i *jsiiProxy_IRabbitMqBrokerDeployment) MetricAckRate(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
@@ -361,103 +355,6 @@ func (i *jsiiProxy_IRabbitMqBrokerDeployment) MetricSystemCpuUtilization(props *
 		&returns,
 	)
 
-	return returns
-}
-
-func (i *jsiiProxy_IRabbitMqBrokerDeployment) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
-	if err := i.validateApplyRemovalPolicyParameters(policy); err != nil {
-		panic(err)
-	}
-	_jsii_.InvokeVoid(
-		i,
-		"applyRemovalPolicy",
-		[]interface{}{policy},
-	)
-}
-
-func (i *jsiiProxy_IRabbitMqBrokerDeployment) Metric(metricName *string, options *awscloudwatch.MetricOptions) awscloudwatch.Metric {
-	if err := i.validateMetricParameters(metricName, options); err != nil {
-		panic(err)
-	}
-	var returns awscloudwatch.Metric
-
-	_jsii_.Invoke(
-		i,
-		"metric",
-		[]interface{}{metricName, options},
-		&returns,
-	)
-
-	return returns
-}
-
-func (j *jsiiProxy_IRabbitMqBrokerDeployment) Arn() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"arn",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_IRabbitMqBrokerDeployment) Connections() awsec2.Connections {
-	var returns awsec2.Connections
-	_jsii_.Get(
-		j,
-		"connections",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_IRabbitMqBrokerDeployment) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
-	_jsii_.Get(
-		j,
-		"env",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_IRabbitMqBrokerDeployment) Id() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"id",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_IRabbitMqBrokerDeployment) Name() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"name",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_IRabbitMqBrokerDeployment) Node() constructs.Node {
-	var returns constructs.Node
-	_jsii_.Get(
-		j,
-		"node",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_IRabbitMqBrokerDeployment) Stack() awscdk.Stack {
-	var returns awscdk.Stack
-	_jsii_.Get(
-		j,
-		"stack",
-		&returns,
-	)
 	return returns
 }
 

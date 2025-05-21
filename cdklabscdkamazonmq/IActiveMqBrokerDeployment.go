@@ -3,17 +3,12 @@ package cdklabscdkamazonmq
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
-	"github.com/aws/constructs-go/constructs/v10"
-	"github.com/cdklabs/cdk-amazonmq-go/cdklabscdkamazonmq/internal"
 )
 
 // Experimental.
 type IActiveMqBrokerDeployment interface {
 	IBrokerDeployment
-	awscdk.IResource
 	// Experimental.
 	MetricAmqpMaximumConnections(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Experimental.
@@ -97,7 +92,6 @@ type IActiveMqBrokerDeployment interface {
 // The jsii proxy for IActiveMqBrokerDeployment
 type jsiiProxy_IActiveMqBrokerDeployment struct {
 	jsiiProxy_IBrokerDeployment
-	internal.Type__awscdkIResource
 }
 
 func (i *jsiiProxy_IActiveMqBrokerDeployment) MetricAmqpMaximumConnections(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
@@ -721,103 +715,6 @@ func (i *jsiiProxy_IActiveMqBrokerDeployment) MetricWsMaximumConnections(props *
 		&returns,
 	)
 
-	return returns
-}
-
-func (i *jsiiProxy_IActiveMqBrokerDeployment) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
-	if err := i.validateApplyRemovalPolicyParameters(policy); err != nil {
-		panic(err)
-	}
-	_jsii_.InvokeVoid(
-		i,
-		"applyRemovalPolicy",
-		[]interface{}{policy},
-	)
-}
-
-func (i *jsiiProxy_IActiveMqBrokerDeployment) Metric(metricName *string, options *awscloudwatch.MetricOptions) awscloudwatch.Metric {
-	if err := i.validateMetricParameters(metricName, options); err != nil {
-		panic(err)
-	}
-	var returns awscloudwatch.Metric
-
-	_jsii_.Invoke(
-		i,
-		"metric",
-		[]interface{}{metricName, options},
-		&returns,
-	)
-
-	return returns
-}
-
-func (j *jsiiProxy_IActiveMqBrokerDeployment) Arn() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"arn",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_IActiveMqBrokerDeployment) Connections() awsec2.Connections {
-	var returns awsec2.Connections
-	_jsii_.Get(
-		j,
-		"connections",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_IActiveMqBrokerDeployment) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
-	_jsii_.Get(
-		j,
-		"env",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_IActiveMqBrokerDeployment) Id() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"id",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_IActiveMqBrokerDeployment) Name() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"name",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_IActiveMqBrokerDeployment) Node() constructs.Node {
-	var returns constructs.Node
-	_jsii_.Get(
-		j,
-		"node",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_IActiveMqBrokerDeployment) Stack() awscdk.Stack {
-	var returns awscdk.Stack
-	_jsii_.Get(
-		j,
-		"stack",
-		&returns,
-	)
 	return returns
 }
 

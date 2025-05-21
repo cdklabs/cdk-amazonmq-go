@@ -160,11 +160,3 @@ func (i *jsiiProxy_IActiveMqBrokerDeployment) validateMetricWsMaximumConnections
 	return nil
 }
 
-func (i *jsiiProxy_IActiveMqBrokerDeployment) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
-	return nil
-}
-
-func (i *jsiiProxy_IActiveMqBrokerDeployment) validateMetricParameters(metricName *string, options *awscloudwatch.MetricOptions) error {
-	return nil
-}
-
