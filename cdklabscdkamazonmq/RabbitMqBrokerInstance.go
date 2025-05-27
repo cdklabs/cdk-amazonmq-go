@@ -261,7 +261,7 @@ func NewRabbitMqBrokerInstance_Override(r RabbitMqBrokerInstance, scope construc
 //
 // Returns: a representation of the RabbitMQ Broker Instance.
 // Experimental.
-func RabbitMqBrokerInstance_FromRabbitMqBrokerInstanceArn(scope constructs.Construct, logicalId *string, arn *string, securityGroups *[]awsec2.ISecurityGroup) IRabbitMqBrokerInstance {
+func RabbitMqBrokerInstance_FromRabbitMqBrokerInstanceArn(scope constructs.Construct, logicalId *string, arn *string, securityGroups *[]awsec2.ISecurityGroup, urlSuffix *string) IRabbitMqBrokerInstance {
 	_init_.Initialize()
 
 	if err := validateRabbitMqBrokerInstance_FromRabbitMqBrokerInstanceArnParameters(scope, logicalId, arn); err != nil {
@@ -272,7 +272,7 @@ func RabbitMqBrokerInstance_FromRabbitMqBrokerInstanceArn(scope constructs.Const
 	_jsii_.StaticInvoke(
 		"@cdklabs/cdk-amazonmq.RabbitMqBrokerInstance",
 		"fromRabbitMqBrokerInstanceArn",
-		[]interface{}{scope, logicalId, arn, securityGroups},
+		[]interface{}{scope, logicalId, arn, securityGroups, urlSuffix},
 		&returns,
 	)
 
@@ -283,7 +283,7 @@ func RabbitMqBrokerInstance_FromRabbitMqBrokerInstanceArn(scope constructs.Const
 //
 // Returns: a representation of the RabbitMQ Broker Instance.
 // Experimental.
-func RabbitMqBrokerInstance_FromRabbitMqBrokerInstanceNameAndId(scope constructs.Construct, logicalId *string, name *string, id *string, securityGroups *[]awsec2.ISecurityGroup) IRabbitMqBrokerInstance {
+func RabbitMqBrokerInstance_FromRabbitMqBrokerInstanceNameAndId(scope constructs.Construct, logicalId *string, name *string, id *string, securityGroups *[]awsec2.ISecurityGroup, urlSuffix *string) IRabbitMqBrokerInstance {
 	_init_.Initialize()
 
 	if err := validateRabbitMqBrokerInstance_FromRabbitMqBrokerInstanceNameAndIdParameters(scope, logicalId, name, id); err != nil {
@@ -294,7 +294,7 @@ func RabbitMqBrokerInstance_FromRabbitMqBrokerInstanceNameAndId(scope constructs
 	_jsii_.StaticInvoke(
 		"@cdklabs/cdk-amazonmq.RabbitMqBrokerInstance",
 		"fromRabbitMqBrokerInstanceNameAndId",
-		[]interface{}{scope, logicalId, name, id, securityGroups},
+		[]interface{}{scope, logicalId, name, id, securityGroups, urlSuffix},
 		&returns,
 	)
 

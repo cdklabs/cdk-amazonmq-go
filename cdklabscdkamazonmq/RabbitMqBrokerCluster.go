@@ -259,7 +259,7 @@ func NewRabbitMqBrokerCluster_Override(r RabbitMqBrokerCluster, scope constructs
 //
 // Returns: a representation of the RabbitMQ Broker Cluster.
 // Experimental.
-func RabbitMqBrokerCluster_FromRabbitMqBrokerClusterArn(scope constructs.Construct, logicalId *string, arn *string, securityGroups *[]awsec2.ISecurityGroup) IRabbitMqBrokerCluster {
+func RabbitMqBrokerCluster_FromRabbitMqBrokerClusterArn(scope constructs.Construct, logicalId *string, arn *string, securityGroups *[]awsec2.ISecurityGroup, urlSuffix *string) IRabbitMqBrokerCluster {
 	_init_.Initialize()
 
 	if err := validateRabbitMqBrokerCluster_FromRabbitMqBrokerClusterArnParameters(scope, logicalId, arn); err != nil {
@@ -270,7 +270,7 @@ func RabbitMqBrokerCluster_FromRabbitMqBrokerClusterArn(scope constructs.Constru
 	_jsii_.StaticInvoke(
 		"@cdklabs/cdk-amazonmq.RabbitMqBrokerCluster",
 		"fromRabbitMqBrokerClusterArn",
-		[]interface{}{scope, logicalId, arn, securityGroups},
+		[]interface{}{scope, logicalId, arn, securityGroups, urlSuffix},
 		&returns,
 	)
 
@@ -281,7 +281,7 @@ func RabbitMqBrokerCluster_FromRabbitMqBrokerClusterArn(scope constructs.Constru
 //
 // Returns: a representation of the RabbitMQ Broker Cluster.
 // Experimental.
-func RabbitMqBrokerCluster_FromRabbitMqBrokerClusterNameAndId(scope constructs.Construct, logicalId *string, name *string, id *string, securityGroups *[]awsec2.ISecurityGroup) IRabbitMqBrokerCluster {
+func RabbitMqBrokerCluster_FromRabbitMqBrokerClusterNameAndId(scope constructs.Construct, logicalId *string, name *string, id *string, securityGroups *[]awsec2.ISecurityGroup, urlSuffix *string) IRabbitMqBrokerCluster {
 	_init_.Initialize()
 
 	if err := validateRabbitMqBrokerCluster_FromRabbitMqBrokerClusterNameAndIdParameters(scope, logicalId, name, id); err != nil {
@@ -292,7 +292,7 @@ func RabbitMqBrokerCluster_FromRabbitMqBrokerClusterNameAndId(scope constructs.C
 	_jsii_.StaticInvoke(
 		"@cdklabs/cdk-amazonmq.RabbitMqBrokerCluster",
 		"fromRabbitMqBrokerClusterNameAndId",
-		[]interface{}{scope, logicalId, name, id, securityGroups},
+		[]interface{}{scope, logicalId, name, id, securityGroups, urlSuffix},
 		&returns,
 	)
 
